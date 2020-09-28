@@ -31,4 +31,11 @@ public class People {
     @Field(type = FieldType.text)
     private String phone;
 
+    public People(String name, int age, String address, String phone) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+        this.phone = phone;
+    }
+
 }
