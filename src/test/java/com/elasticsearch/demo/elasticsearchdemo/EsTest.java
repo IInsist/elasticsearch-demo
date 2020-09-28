@@ -2,6 +2,7 @@ package com.elasticsearch.demo.elasticsearchdemo;
 
 import com.elasticsearch.demo.elasticsearchdemo.entity.Book;
 import com.elasticsearch.demo.elasticsearchdemo.repository.BookRepository;
+import com.elasticsearch.demo.elasticsearchdemo.util.StringUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class EsTest {
      */
     @Test
     public void test1(){
-        Book book = new Book("小瓜瓜","这是一个小瓜瓜",1111,new Date());
+        Book book = new Book("小美眉","这是一个小瓜瓜",1111,new Date());
         bookRepository.save(book);
     }
 
