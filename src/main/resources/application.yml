@@ -1,0 +1,10 @@
+server:
+  port: 8082
+
+spring:
+  data:
+    elasticsearch:
+      cluster-name: soframe  #ES集群名称
+      cluster-nodes: 121.37.177.118:9300  #ES集群节点，多个节点时用“,”隔开。
+      repositories:
+        enabled: true
