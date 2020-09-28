@@ -4,7 +4,7 @@ server:
 spring:
   data:
     elasticsearch:
-      cluster-name: soframe  #ES集群名称
+      cluster-name: soframe  #ES集群名称，需和ES配置文件中cluster.name参数值一致
       cluster-nodes: 121.37.177.118:9300  #ES集群节点，多个节点时用“,”隔开。
       repositories:
         enabled: true
