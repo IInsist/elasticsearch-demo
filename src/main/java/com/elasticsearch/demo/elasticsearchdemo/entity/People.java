@@ -31,6 +31,12 @@ public class People {
     @Field(type = FieldType.text)
     private String phone;
 
+    /**
+     * 需要添加无参数的构造方法
+     */
+    public People() {
+    }
+
     public People(String name, int age, String address, String phone) {
         this.name = name;
         this.age = age;

@@ -35,6 +35,12 @@ public class Book implements Serializable {
     @Field(type = FieldType.Date)
     private Date date;
 
+    /**
+     * 需要添加无参数的构造函数
+     */
+    public Book() {
+    }
+
     public Book(String name, String title, int page, Date date) {
         this.name = name;
         this.title = title;
