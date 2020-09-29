@@ -31,12 +31,21 @@ public class EsTemplateTest {
     }
 
     /**
-     * 查看所有people文档数据
+     * 测试查看所有people文档数据
      */
     @Test
     public void test2(){
         List<People> all = peopleService.findAll();
         System.out.println(all.toString());
+    }
+
+    /**
+     * 测试单个查找
+     */
+    @Test
+    public void test3(){
+        People one = peopleService.findById("AXSuOZkYEcJFge0Om38G");
+        System.out.println(one.toString());
     }
 
 }

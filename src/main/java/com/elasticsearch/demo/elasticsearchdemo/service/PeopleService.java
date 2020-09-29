@@ -11,4 +11,17 @@ public interface PeopleService {
      * @return
      */
     List<People> findAll();
+
+    /**
+     * 通过名称进行模糊查询
+     * @return
+     */
+    List<People> findByName();
+
+    /**
+     * 单个查找
+     * @param id
+     * @return
+     */
+    People findById(String id);
 }

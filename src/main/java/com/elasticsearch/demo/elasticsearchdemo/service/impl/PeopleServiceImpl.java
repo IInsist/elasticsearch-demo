@@ -13,6 +13,7 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * 第二种操作ES服务的方法：
@@ -27,12 +28,6 @@ public class PeopleServiceImpl implements PeopleService{
      */
     @Autowired
     private ElasticsearchTemplate template;
-
-    /**
-     * 主要用于对数据的新增、基本查询等。
-     */
-    @Resource
-    private BookRepository bookRepository;
 
     /**
      * 主要用于对数据的新增、基本查询等。
@@ -56,6 +51,27 @@ public class PeopleServiceImpl implements PeopleService{
             result.add(next);
         }
         return result;
+    }
+
+    /**
+     * 通过名称进行模糊查询
+     * @return
+     */
+    @Override
+    public List<People> findByName() {
+        //peopleRepository.find
+        return null;
+    }
+
+    /**
+     * 单个查找
+     * @param id
+     * @return
+     */
+    @Override
+    public People findById(String id) {
+        Optional<People> one = peopleRepository.findById(id);
+        return one==null ? null : one.get();
     }
 
 }
