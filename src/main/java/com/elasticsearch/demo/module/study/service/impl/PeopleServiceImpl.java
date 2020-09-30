@@ -1,9 +1,8 @@
-package com.elasticsearch.demo.elasticsearchdemo.service.impl;
+package com.elasticsearch.demo.module.study.service.impl;
 
-import com.elasticsearch.demo.elasticsearchdemo.entity.People;
-import com.elasticsearch.demo.elasticsearchdemo.repository.BookRepository;
-import com.elasticsearch.demo.elasticsearchdemo.repository.PeopleRepository;
-import com.elasticsearch.demo.elasticsearchdemo.service.PeopleService;
+import com.elasticsearch.demo.module.study.entity.People;
+import com.elasticsearch.demo.module.study.repository.PeopleRepository;
+import com.elasticsearch.demo.module.study.service.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.stereotype.Service;

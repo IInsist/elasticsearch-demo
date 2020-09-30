@@ -1,4 +1,4 @@
-package com.elasticsearch.demo.elasticsearchdemo.entity;
+package com.elasticsearch.demo.module.study.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

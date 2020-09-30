@@ -1,7 +1,6 @@
-package com.elasticsearch.demo.elasticsearchdemo.service;
+package com.elasticsearch.demo.module.study.service;
 
-import com.elasticsearch.demo.elasticsearchdemo.entity.People;
-import org.springframework.stereotype.Service;
+import com.elasticsearch.demo.module.study.entity.People;
 
 import java.util.List;
 

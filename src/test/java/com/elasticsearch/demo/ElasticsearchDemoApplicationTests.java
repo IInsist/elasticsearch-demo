@@ -1,4 +1,4 @@
-package com.elasticsearch.demo.elasticsearchdemo;
+package com.elasticsearch.demo;
 
 import org.springframework.boot.test.context.SpringBootTest;
 

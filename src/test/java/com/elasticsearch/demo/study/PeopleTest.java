@@ -1,11 +1,10 @@
-package com.elasticsearch.demo.elasticsearchdemo;
+package com.elasticsearch.demo.study;
 
-import com.elasticsearch.demo.elasticsearchdemo.entity.People;
-import com.elasticsearch.demo.elasticsearchdemo.service.PeopleService;
+import com.elasticsearch.demo.module.study.entity.People;
+import com.elasticsearch.demo.module.study.service.PeopleService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -16,7 +15,7 @@ import java.util.Map;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class EsTemplateTest {
+public class PeopleTest {
 
     @Resource
     private ElasticsearchTemplate estemplate;

@@ -1,8 +1,7 @@
-package com.elasticsearch.demo.elasticsearchdemo.entity;
+package com.elasticsearch.demo.module.study.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;

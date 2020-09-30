@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.elasticsearch.demo.module.student.repository.StudentQdInfoRepository">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.elasticsearch.demo.module.student.entity.StudentQdInfo">
+        <id column="XH" property="xh" />
+        <result column="XM" property="xm" />
+        <result column="SFZ" property="sfz" />
+        <result column="LXDH" property="lxdh" />
+        <result column="TXDZ" property="txdz" />
+        <result column="NJ" property="nj" />
+        <result column="BJ" property="bj" />
+        <result column="ZY" property="zy" />
+        <result column="BZR" property="bzr" />
+        <result column="LX" property="lx" />
+        <result column="XTLXDH" property="xtlxdh" />
+        <result column="CJSJ" property="cjsj" />
+        <result column="GXSJ" property="gxsj" />
+        <result column="SFJK" property="sfjk" />
+        <result column="SFJCZDQY" property="sfjczdqy" />
+        <result column="ZDQYCS" property="zdqycs" />
+        <result column="SFZGLQY" property="sfzglqy" />
+        <result column="BZRLXDH" property="bzrlxdh" />
+        <result column="XY" property="xy" />
+        <result column="XX" property="xx" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        XH, XM, SFZ, LXDH, TXDZ, NJ, BJ, ZY, BZR, LX, XTLXDH, CJSJ, GXSJ, SFJK, SFJCZDQY, ZDQYCS, SFZGLQY, BZRLXDH, XY, XX
+    </sql>
+
+</mapper>

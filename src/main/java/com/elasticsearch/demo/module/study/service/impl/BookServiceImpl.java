@@ -1,6 +1,6 @@
-package com.elasticsearch.demo.elasticsearchdemo.service.impl;
+package com.elasticsearch.demo.module.study.service.impl;
 
-import com.elasticsearch.demo.elasticsearchdemo.service.BookService;
+import com.elasticsearch.demo.module.study.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.stereotype.Service;

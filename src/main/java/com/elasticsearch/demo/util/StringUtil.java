@@ -1,4 +1,4 @@
-package com.elasticsearch.demo.elasticsearchdemo.util;
+package com.elasticsearch.demo.util;
 
 import java.util.UUID;
 

@@ -1,4 +1,4 @@
-package com.elasticsearch.demo.elasticsearchdemo.controller;
+package com.elasticsearch.demo.module.study.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

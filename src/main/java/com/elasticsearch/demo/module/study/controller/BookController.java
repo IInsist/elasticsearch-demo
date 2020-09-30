@@ -1,7 +1,7 @@
-package com.elasticsearch.demo.elasticsearchdemo.controller;
+package com.elasticsearch.demo.module.study.controller;
 
-import com.elasticsearch.demo.elasticsearchdemo.entity.Book;
-import com.elasticsearch.demo.elasticsearchdemo.repository.BookRepository;
+import com.elasticsearch.demo.module.study.entity.Book;
+import com.elasticsearch.demo.module.study.repository.BookRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

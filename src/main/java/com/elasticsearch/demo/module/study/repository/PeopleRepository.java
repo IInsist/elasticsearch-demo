@@ -1,6 +1,6 @@
-package com.elasticsearch.demo.elasticsearchdemo.repository;
+package com.elasticsearch.demo.module.study.repository;
 
-import com.elasticsearch.demo.elasticsearchdemo.entity.People;
+import com.elasticsearch.demo.module.study.entity.People;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,8 +1,7 @@
-package com.elasticsearch.demo.elasticsearchdemo;
+package com.elasticsearch.demo.study;
 
-import com.elasticsearch.demo.elasticsearchdemo.entity.Book;
-import com.elasticsearch.demo.elasticsearchdemo.repository.BookRepository;
-import com.elasticsearch.demo.elasticsearchdemo.util.StringUtil;
+import com.elasticsearch.demo.module.study.entity.Book;
+import com.elasticsearch.demo.module.study.repository.BookRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,7 @@ import java.util.Date;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class EsTest {
+public class BookTest {
 
     @Autowired
     private BookRepository bookRepository;
