@@ -5,6 +5,8 @@ import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -44,10 +46,6 @@ public class StudentQdInfo implements Serializable {
     @TableField("LXDH")
     private String lxdh;
 
-    @ApiModelProperty(value = "通讯地址")
-    @TableField("TXDZ")
-    private String txdz;
-
     @ApiModelProperty(value = "年级")
     @TableField("NJ")
     private String nj;
@@ -64,41 +62,15 @@ public class StudentQdInfo implements Serializable {
     @TableField("BZR")
     private String bzr;
 
-    @ApiModelProperty(value = "类型 0 统招  1 社招")
-    @TableField("LX")
-    private String lx;
-
-    @ApiModelProperty(value = "系统联系电话")
-    @TableField("XTLXDH")
-    private String xtlxdh;
-
+    @JsonFormat(pattern="yyyy-MM-ddHH:mm:ss",timezone="GMT+8")
     @ApiModelProperty(value = "创建时间")
     @TableField("CJSJ")
     private Date cjsj;
 
+    @JsonFormat(pattern="yyyy-MM-ddHH:mm:ss",timezone="GMT+8")
     @ApiModelProperty(value = "更新时间")
     @TableField("GXSJ")
     private Date gxsj;
-
-    @ApiModelProperty(value = "是否健康")
-    @TableField("SFJK")
-    private String sfjk;
-
-    @ApiModelProperty(value = "是否进出重点区域")
-    @TableField("SFJCZDQY")
-    private String sfjczdqy;
-
-    @ApiModelProperty(value = "重点区域城市")
-    @TableField("ZDQYCS")
-    private String zdqycs;
-
-    @ApiModelProperty(value = "是否在隔离区")
-    @TableField("SFZGLQY")
-    private String sfzglqy;
-
-    @ApiModelProperty(value = "班主任联系电话")
-    @TableField("BZRLXDH")
-    private String bzrlxdh;
 
     @ApiModelProperty(value = "学院")
     @TableField("XY")
