@@ -10,7 +10,12 @@ import com.google.common.collect.Lists;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
+import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -78,6 +83,69 @@ public class StudentQdInfoImpl extends ServiceImpl<StudentQdInfoRepository, Stud
 
         Iterable<StudentDoc> search = studentElactisSearchRepository.search(boolQueryBuilder);
         return Lists.newArrayList(search);
+    }
+
+    /**
+     * 查找某学院下学生信息
+     * POST请求：http://127.0.0.1:9200/student/000000001/_search/
+     * 类似于构建成该查询JSON：
+     * {
+     *     "query": {
+     *         "bool": {
+     *             "must": [
+     *                 {
+     *                     "match_phrase": {
+     *                         "xy": "艺术与设计学院"
+     *                     }
+     *                 }
+     *             ]
+     *         }
+     *     },
+     *     size: 20000
+     * }
+     * @param xy
+     * @return
+     */
+    @Override
+    public List<StudentDoc> findStudentInfoByXy(String xy) {
+        /**
+         * 1)构建查询条件
+         */
+        BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
+        List<QueryBuilder> must = boolQueryBuilder.must();
+        //习语查询（不对查询关键字进行拆分）
+        must.add(QueryBuilders.matchPhraseQuery("xy",xy));
+
+        /**
+         * 2）将查询条件置入查询对象中
+         */
+        //设置查询条数20000条
+        Pageable pageable = PageRequest.of(0, 20000);
+        SearchQuery query = new NativeSearchQueryBuilder()
+                .withQuery(boolQueryBuilder) //查询条件
+                .withPageable(pageable)  //限制查询数量
+                .build();
+        return elasticsearchTemplate.queryForList(query,StudentDoc.class);
+    }
+
+    /**
+     * 通过姓名分页查找学生信息
+     * @param name
+     * @param page 分页参数
+     * @return
+     */
+    @Override
+    public Page<StudentDoc> findStudentInfoByPage(String name, Pageable page) {
+        /**
+         * 1）构造查询体 query和bool
+         */
+        BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
+        /**
+         * 2）构造查询条件 must和match
+         */
+        boolQueryBuilder.must(QueryBuilders.matchQuery("xm",name));
+        Page<StudentDoc> search = studentElactisSearchRepository.search(boolQueryBuilder, page);
+        return search;
     }
 
 }
