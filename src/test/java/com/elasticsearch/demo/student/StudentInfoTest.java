@@ -7,6 +7,9 @@ import com.elasticsearch.demo.module.student.service.StudentQdInfoServiceI;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
@@ -78,4 +81,37 @@ public class StudentInfoTest {
         }
     }
 
+    /**
+     * 查找某学院下学生信息
+     */
+    @Test
+    public void findStudentInfoByXy(){
+        List<StudentDoc> result = studentService.findStudentInfoByXy("艺术与设计学院");
+        Integer i=1;
+        for (StudentDoc s:result){
+            System.out.println("i="+i+" "+s.toString());
+            i++;
+        }
+    }
+
+    /**
+     * 通过姓名分页查找学生信息
+     */
+    @Test
+    public void findStudentInfoByPage(){
+        Pageable page = PageRequest.of(1,50);
+        Page<StudentDoc> result = studentService.findStudentInfoByPage("周", page);
+        System.out.println("toString（）："+result.toString());
+        System.out.println("总数量："+result.getTotalElements());
+        System.out.println("总数量："+result.getSize());
+        System.out.println("总页数："+result.getTotalPages());
+        System.out.println("Pageable对象toString（）："+result.getPageable().toString());
+        System.out.println("总切片数："+result.getNumber());
+
+        int i=1;
+        for (StudentDoc s:result.getContent()){
+            System.out.println("i="+i+" "+s.toString());
+            i++;
+        }
+    }
 }
