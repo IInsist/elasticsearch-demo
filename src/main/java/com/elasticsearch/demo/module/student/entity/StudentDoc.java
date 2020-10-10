@@ -36,13 +36,19 @@ public class StudentDoc implements Serializable {
     @Field(type = FieldType.text)
     private String lxdh;
 
-    @Field(type = FieldType.text)
+    /**
+     * 开启fielddata=true后支持对text类型字段进行aggs聚合查询
+     */
+    @Field(type = FieldType.text,fielddata = true)
     private String nj;
 
     @Field(type = FieldType.text)
     private String bj;
 
-    @Field(type = FieldType.text)
+    /**
+     * 开启fielddata=true后支持对text类型字段进行aggs聚合查询
+     */
+    @Field(type = FieldType.text,fielddata = true)
     private String zy;
 
     @Field(type = FieldType.text)
@@ -54,7 +60,10 @@ public class StudentDoc implements Serializable {
     @Field(type = FieldType.Date)
     private Date gxsj;
 
-    @Field(type = FieldType.text)
+    /**
+     * 开启fielddata=true后支持对text类型字段进行aggs聚合查询
+     */
+    @Field(type = FieldType.text,fielddata = true)
     private String xy;
 
     @Field(type = FieldType.text)
