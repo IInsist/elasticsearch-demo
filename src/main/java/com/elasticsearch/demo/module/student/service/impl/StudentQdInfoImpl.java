@@ -10,10 +10,14 @@ import com.google.common.collect.Lists;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.aggregations.AggregationBuilders;
+import org.elasticsearch.search.aggregations.bucket.terms.TermsAggregationBuilder;
+import org.elasticsearch.search.aggregations.metrics.valuecount.ValueCountAggregationBuilder;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.stereotype.Service;
@@ -146,6 +150,20 @@ public class StudentQdInfoImpl extends ServiceImpl<StudentQdInfoRepository, Stud
         boolQueryBuilder.must(QueryBuilders.matchQuery("xm",name));
         Page<StudentDoc> search = studentElactisSearchRepository.search(boolQueryBuilder, page);
         return search;
+    }
+
+    /**
+     * 聚合查询
+     * @return
+     */
+    @Override
+    public Object groupByXy() {
+        //设置不查找数据size=0，目的为提高查询速度
+        TermsAggregationBuilder xy = AggregationBuilders.terms("xy").size(0);
+        SearchQuery query = new NativeSearchQueryBuilder().addAggregation(xy).build();
+        AggregatedPage<StudentDoc> studentDocs = elasticsearchTemplate.queryForPage(query, StudentDoc.class);
+        //return studentElactisSearchRepository.search(query);
+        return studentDocs;
     }
 
 }

@@ -40,4 +40,9 @@ public interface StudentQdInfoServiceI extends IService<StudentQdInfo> {
      */
     Page<StudentDoc> findStudentInfoByPage(String name, Pageable page);
 
+    /**
+     * 聚合查询
+     * @return
+     */
+    Object groupByXy();
 }

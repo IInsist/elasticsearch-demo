@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
@@ -114,4 +115,16 @@ public class StudentInfoTest {
             i++;
         }
     }
+
+    /**
+     * 通过姓名分页查找学生信息
+     */
+    @Test
+    public void groupByXy(){
+        AggregatedPage resutl = (AggregatedPage)studentService.groupByXy();
+        System.out.println(resutl.toString());
+        System.out.println(resutl.getAggregation("xy").toString());
+        System.out.println(resutl.getAggregations().toString());
+    }
+
 }
